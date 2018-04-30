@@ -27,15 +27,13 @@
             <div class="panel-body">
                 <form role="form" method="POST" action="{{ url('/login') }}">
                     @csrf
-                    {{--@if(@$errors->has('email') | $errors->has('password'))--}}
-                        {{--<div class="alert alert-danger">--}}
-                            {{--<a class="close" data-dismiss="alert" href="#">×</a>--}}
-                            {{--Incorrect Email or Password!--}}
-                        {{--</div>--}}
-                    {{--@endif--}}
+                    @if(@$errors->has('email') | $errors->has('password'))
+                        <div class="alert alert-danger">
+                            <a class="close" data-dismiss="alert" href="">×</a>
+                            Incorrect Email or Password!
+                        </div>
+                    @endif
                     <div class="input-group text-box">
-                        {{--<label for="email"--}}
-                               {{--class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>--}}
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                         <input id="email"
                                type="email"
@@ -43,27 +41,25 @@
                                name="email"
                                value="{{ old('email') }}"
                                placeholder="Email">
-                        @if ($errors->has('email'))
-                            <span class="invalid-feedback">
-                                <strong>{{ $errors->first('email') }}</strong>
-                            </span>
-                        @endif
+                        {{--@if ($errors->has('email'))--}}
+                            {{--<span class="invalid-feedback">--}}
+                                {{--<strong>{{ $errors->first('email') }}</strong>--}}
+                            {{--</span>--}}
+                        {{--@endif--}}
                     </div>
 
                     <div class="input-group text-box">
-                        {{--<label for="password"--}}
-                               {{--class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>--}}
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                         <input id="password"
                                type="password"
                                class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
                                name="password"
                                placeholder="password">
-                        @if ($errors->has('password'))
-                            <span class="invalid-feedback">
-                                <strong>{{ $errors->first('password') }}</strong>
-                            </span>
-                        @endif
+                        {{--@if ($errors->has('password'))--}}
+                            {{--<span class="invalid-feedback">--}}
+                                {{--<strong>{{ $errors->first('password') }}</strong>--}}
+                            {{--</span>--}}
+                        {{--@endif--}}
                     </div>
 
                     <div class="input-group">
