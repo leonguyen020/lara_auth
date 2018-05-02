@@ -28,5 +28,22 @@ class PermissionsSeeder extends Seeder
 
         $Permissions -> save();
         // End First Permission
+
+        // Second Permission
+        $Permissions = new Permissions();
+        $Permissions -> name = "Limited User";
+
+        // CRUD status setting
+        $Permissions -> view_status = true;
+        $Permissions -> add_status = false;
+        $Permissions -> edit_status = false;
+        $Permissions -> delete_status = false;
+
+        // Permission status
+        $Permissions -> status = true;
+        $Permissions -> created_by = 1;
+
+        $Permissions -> save();
+        // End Second Permission
     }
 }
