@@ -48,8 +48,11 @@ class DatabaseCreateCommand extends Command
         //
         $database = env('DB_DATABASE', false);
 
-        if (! $database) {
-            $this->info('Skipping creation of database as env(DB_DATABASE) is empty');
+        if (! $database or $database == "homestead") {
+            $this->info('Skipping creation of database as env(DB_DATABASE) is not configured');
+            return;
+        }else if(env('DB_USERNAME') == "homestead"){
+            $this->info('Skipping creation of database as env(DB_USERNAME) is not configured');
             return;
         }
 
