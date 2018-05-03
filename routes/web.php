@@ -9,6 +9,10 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
+| For active navbar
+| https://laravel-tricks.com/tricks/active-states-based-on-route-names
+| https://laravel-tricks.com/tricks/setting-active-states-for-navigation
+| https://stackoverflow.com/questions/29837555/setting-bootstrap-navbar-active-class-in-laravel-5?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
 */
 
 Route::get('/', function () {
