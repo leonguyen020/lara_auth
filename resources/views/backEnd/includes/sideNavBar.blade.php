@@ -1,3 +1,4 @@
+<!-- Left side column. contains the logo and sidebar -->
 <section class="sidebar">
     <!-- Sidebar user panel -->
     <div class="user-panel">
@@ -9,7 +10,11 @@
             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
     </div>
+
+    <!-- Search form for Administrator -->
     @include('backEnd.includes.searchForm')
+    <!-- End Search form for Administrator -->
+
     <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li class="active treeview">

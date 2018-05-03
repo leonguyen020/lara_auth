@@ -15,6 +15,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/admin',function (){
+   return redirect()->route('adminHome');
+});
+
 Auth::routes();
 
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => env('BACKEND_PATH')],function (){
+    // Admin Home
+    Route::get('/', 'HomeController@index')->name('adminHome');
+});
