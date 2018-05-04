@@ -15,7 +15,7 @@ class CreatePermissionsTable extends Migration
     {
         Schema::create('permissions', function (Blueprint $table) {
             // Set collation & charset
-            $table->collation = 'utf8_general_ci';
+            $table->collation = 'utf8_unicode_ci';
             $table->charset = 'utf8';
 
             $table->increments('id');

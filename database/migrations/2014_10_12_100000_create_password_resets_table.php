@@ -15,7 +15,7 @@ class CreatePasswordResetsTable extends Migration
     {
         Schema::create('password_resets', function (Blueprint $table) {
             // Set collation & charset
-            $table->collation = 'utf8_general_ci';
+            $table->collation = 'utf8_unicode_ci';
             $table->charset = 'utf8';
 
             $table->string('email')->index();
