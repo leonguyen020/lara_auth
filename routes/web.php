@@ -30,6 +30,20 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => env('BACKEND_PATH')],function (){
+
+    // No Permission
+    Route::get('/403', function () {
+        return view('errors.403');
+    })->name('NoPermission');
+
+    // Not Found
+    Route::get('/404', function () {
+        return view('errors.404');
+    })->name('NotFound');
+
     // Admin Home
     Route::get('/', 'HomeController@index')->name('adminHome');
+
+    // User list management
+    Route::get('/users','UserController@index')->name('users');
 });

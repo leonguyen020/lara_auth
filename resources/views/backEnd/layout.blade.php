@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     @include('backEnd.includes.head')
+    @yield('headLinks')
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -14,5 +15,6 @@
         @include('backEnd.includes.controlSideBar')
     </div>
     @include('backEnd.includes.script')
+    @yield('extendScripts')
 </body>
 </html>

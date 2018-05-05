@@ -1,18 +1,22 @@
 @extends('backEnd.layout')
 
+@section('headLinks')
+    <!-- Morris chart -->
+    <link rel="stylesheet" href="{{ URL::to('backEnd/bower_components/morris.js/morris.css') }}">
+    <!-- jvectormap -->
+    <link rel="stylesheet" href="{{ URL::to('backEnd/bower_components/jvectormap/jquery-jvectormap.css') }}">
+    <!-- Date Picker -->
+    <link rel="stylesheet" href="{{ URL::to('backEnd/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="{{ URL::to('backEnd/bower_components/bootstrap-daterangepicker/daterangepicker.css') }}">
+    <!-- bootstrap wysihtml5 - text editor -->
+    <link rel="stylesheet" href="{{ URL::to('backEnd/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
+@endsection
+
 @section('content')
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>
-                Dashboard
-                <small>Control panel</small>
-            </h1>
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li class="active">Dashboard</li>
-            </ol>
-        </section>
+        @include('backEnd.includes.breadcrumb')
 
         <!-- Main content -->
         <section class="content">
