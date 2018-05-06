@@ -18,12 +18,12 @@
 
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
-            <li class="{{ Request::segment(1) === 'admin' ? 'active' : null }}">
+            <li class="{{ active_class(if_route('adminHome')) }}">
                 <a href="{{ route('adminHome') }}">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
             </li>
-            <li class="{{ Request::segment(2) === 'users' ? 'active' : null }}">
+            <li class="{{ active_class(if_route('users')) }}">
                 <a href="{{ route('users') }}">
                     <i class="fa fa-users"></i> <span>Users List</span>
                     {{--<span class="pull-right-container">--}}
@@ -188,7 +188,7 @@
                 </a>
             </li>
             <li class="header">Webmaster Section</li>
-            <li>
+            <li class="{{ active_class(if_route('settings')) }}">
                 <a href="{{ route('settings') }}">
                     <i class="fa fa-cogs"></i> <span> Settings</span>
                 </a>
