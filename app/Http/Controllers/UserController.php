@@ -15,7 +15,7 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        if(@Auth::user()->permissions_id > 1){
+        if(@Auth::user()->permissions_id != 0 && Auth::user()->permissions_id != 1){
             return Redirect::to(route('NoPermission'))->send();
         }
     }

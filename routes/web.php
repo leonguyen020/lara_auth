@@ -46,4 +46,9 @@ Route::group(['prefix' => env('BACKEND_PATH')],function (){
 
     // User list management
     Route::get('/users','UserController@index')->name('users');
+
+    // Setting page
+    Route::group(['prefix' => 'settings'],function(){
+        Route::get('/settings','SettingsController@index')->name('settings');
+    });
 });
