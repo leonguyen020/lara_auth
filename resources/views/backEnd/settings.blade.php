@@ -72,14 +72,15 @@
     <div class="content-wrapper">
         <!-- Breadcrumb -->
         @include('backEnd.includes.breadcrumb')
+
         <div class="container" style="margin-top: 20px">
             <div class="row">
                 <div class="col-sm-3">
                     <a href="#" class="nav-tabs-dropdown btn btn-block btn-primary">Settings</a>
                     <ul class="nav nav-tabs nav-pills nav-stacked well">
                         <li class="active"><a href="#vtab1" data-toggle="tab">General Settings</a></li>
-                        <li><a href="#vtab2" data-toggle="tab">Tab 2</a></li>
-                        <li><a href="#vtab3" data-toggle="tab">Tab 3</a></li>
+                        <li><a href="#vtab2" data-toggle="tab">SEO Settings</a></li>
+                        <li><a href="#vtab3" data-toggle="tab">Site Status</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-9">

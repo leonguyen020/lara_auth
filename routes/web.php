@@ -49,6 +49,6 @@ Route::group(['prefix' => env('BACKEND_PATH')],function (){
 
     // Setting page
     Route::group(['prefix' => 'settings'],function(){
-        Route::get('/settings','SettingsController@index')->name('settings');
+        Route::get('/','SettingsController@index')->name('settings');
     });
 });
