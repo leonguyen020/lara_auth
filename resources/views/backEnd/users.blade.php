@@ -2,6 +2,7 @@
 @section('headLinks')
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ URL::to('backEnd/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
+    {{--<link rel="stylesheet" href="{{ URL::to('backEnd/css/deleteModal.css') }}">--}}
 @endsection
 @section('content')
     <div class="content-wrapper">
@@ -11,6 +12,7 @@
         <div class="box" style="margin-top: 20px;">
             <div class="box-header">
                 <h3 class="box-title">Users List</h3>
+                <a href="#" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Create New User</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -33,7 +35,14 @@
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->permissionGroup->name}}</td>
                             <td>X</td>
-                            <td>X</td>
+                            <td>
+                                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#edit-modal">
+                                    <i class="fa fa-edit"></I>
+                                </button>
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>
@@ -52,7 +61,30 @@
             <!-- /.box-body -->
         </div>
         <!-- /.box -->
+    </div>
+    <!-- Create Modal -->
+    <!-- Edit Modal -->
+    <!-- Delete Modal -->
+    <div id="deleteModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Confirmation</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
 
+                </div>
+                <div class="modal-body text-center">
+                    <h3>Do you want to delete this row?</h3>
+                    <h3>You cannot undo this action once you decided.</h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger pull-right"><i class="fa fa-trash"></i> Delete</button>
+                </div>
+            </div>
+
+        </div>
     </div>
 @endsection
 @section('extendScripts')
@@ -62,14 +94,7 @@
     <script>
         $(function () {
             $('#example1').DataTable()
-            // $('#example2').DataTable({
-            //     'paging'      : true,
-            //     'lengthChange': false,
-            //     'searching'   : false,
-            //     'ordering'    : true,
-            //     'info'        : true,
-            //     'autoWidth'   : false
-            // })
-        })
+        });
     </script>
+
 @endsection

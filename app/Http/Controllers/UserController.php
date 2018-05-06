@@ -10,11 +10,12 @@ use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
 {
-    private $upload_path = "uploads/users";
+    private $upload_path = "/uploads/users";
 
     public function __construct()
     {
         $this->middleware('auth');
+        $user_permission = Auth::user();
         if(@Auth::user()->permissions_id != 0 && Auth::user()->permissions_id != 1){
             return Redirect::to(route('NoPermission'))->send();
         }
@@ -53,6 +54,25 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+        if($request->hasfile('filename'))
+        {
+            $file = $request->file('filename');
+            $name=time().$file->getClientOriginalName();
+            $file->move(public_path().$upload_path, $name);
+        }
+        $user= new User();
+        $user->name             = $request->get('name');
+        $user->email            = $request->get('email');
+        $user->password         = $request->get('password');
+        $user->status           = $request->get('status');
+        $user->permissions_id   = $request->get('permissions_id');
+        $user->created_by       = $request->get('created_by');
+//        $date                       = date_create($request->get('date'));
+//        $format                     = date_format($date,"Y-m-d");
+//        $passport->date             = strtotime($format);
+        $user->photo            = $name;
+        $user->save();
+        return redirect()->route('users')->with('Success', 'Information has been added');
     }
 
     /**
