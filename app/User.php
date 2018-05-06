@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     public function permissionGroup(){
-        return $this->belongsTo('App\Permissions','permission_id');
+        return $this->belongsTo('App\Permissions','permissions_id');
     }
 
     use Notifiable;

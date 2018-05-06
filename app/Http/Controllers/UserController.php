@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Permissions;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -26,7 +28,10 @@ class UserController extends Controller
     public function index()
     {
         //
-        return view('backEnd.users');
+        $Users = User::all();
+        $Permissions = Permissions::orderby('id', 'asc')->get();
+        return view('backEnd.users',compact('Users',
+            'Permissions'));
     }
 
     /**

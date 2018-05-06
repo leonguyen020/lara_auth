@@ -8,6 +8,6 @@ class Permissions extends Model
 {
     //
     public function users(){
-        return $this->hasMany('App\Users','permission_id');
+        return $this->hasMany('App\Users','permissions_id');
     }
 }
